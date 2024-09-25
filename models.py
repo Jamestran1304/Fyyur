@@ -20,7 +20,7 @@ class Venue(db.Model):
     seeking_description = db.Column(db.Text)
     artists = db.relationship("Artist", secondary="show", lazy="joined", cascade='all, delete')
         # ? CASCADE ALL, DELETE to delete the children (Shows) automatically before deleting the parent
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate ✅
+    # DONE: implement any missing fields, as a database migration using Flask-Migrate ✅
 
 
 class Artist(db.Model):
@@ -39,7 +39,7 @@ class Artist(db.Model):
     seeking_description = db.Column(db.Text)
     venue = db.relationship("Venue", secondary="show", lazy="joined", cascade='all, delete')
     
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate ✅
+    # DONE: implement any missing fields, as a database migration using Flask-Migrate ✅
 
 
 class Show(db.Model):
@@ -54,4 +54,3 @@ class Show(db.Model):
 #src: 
 # https://michaelcho.me/article/many-to-many-relationships-in-sqlalchemy-models-flask/ 
 # https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html#many-to-many
-# i used these links to help me model the many to many relationship using a class instead of an asstioation table 
